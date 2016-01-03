@@ -1,0 +1,28 @@
+{
+  "name": "rd-inspect-object",
+  "version": "1.0.0",
+  "description": "Angular 1 directive for Web Inspector-style object graph visualization",
+  "main": "dist/rd-inspect-object.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "build": {
+    "name": "rd-inspect-object",
+    "port": 8002
+  },
+  "keywords": [
+    "angular",
+    "inspector",
+    "inspect",
+    "object"
+  ],
+  "author": "Nate Abele <nate@radify.io>",
+  "repository": "https://github.com/radify/rd-inspect-object.git",
+  "license": "BSD",
+  "jspm": true,
+  "devDependencies": {
+    "babel": "npm:babel-core@^5.8.24",
+    "babel-runtime": "npm:babel-runtime@^5.8.24",
+    "core-js": "npm:core-js@^1.1.4"
+  }
+}

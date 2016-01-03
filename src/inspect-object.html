@@ -1,0 +1,16 @@
+<div>
+  <span ng-if="!ctrl.isObject(ctrl.value)" class="value" ng-class="ctrl.typeOf(value)">
+    {{ value | json }}
+  </span>
+  <div ng-if="ctrl.isObject(ctrl.value)">
+    <ol class="value object">
+      <li ng-repeat="(key, val) in ctrl.value">
+        <rd-inspect-object-element
+          object="ctrl.value"
+          key="key"
+          value="val"
+        ></rd-inspect-object-element>
+      </li>
+    </ol>
+  </div>
+</div>

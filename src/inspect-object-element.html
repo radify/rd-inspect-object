@@ -1,0 +1,33 @@
+<span
+  class="key"
+  ng-if="!ctrl.isArray(ctrl.object)"
+  ng-click="ctrl.state.open = !ctrl.state.open; $event.stopPropagation();"
+  ng-class="{
+    open:      ctrl.state.open,
+    closed:    !ctrl.state.open,
+    populated: !ctrl.isEmpty(ctrl.value),
+    empty:     ctrl.isEmpty(ctrl.value),
+    object:    ctrl.isObject(ctrl.value)
+  }"
+>
+  {{ ctrl.key }}<span class="marker">:</span>
+</span>
+<span ng-if="!ctrl.isObject(ctrl.value)" class="value" ng-class="ctrl.typeOf(ctrl.value)">{{ ctrl.value | json }}</span>
+<span ng-if="ctrl.isObject(ctrl.value)">
+  <span class="brace" ng-bind="ctrl.isArray(ctrl.value) && '[' || '{'"></span>
+  <span
+    ng-if="!ctrl.state.open && !ctrl.isEmpty(ctrl.value)"
+    ng-click="ctrl.state.open = true;
+    $event.stopPropagation();"
+  > &#8230 </span>
+  <ol ng-if="ctrl.state.open && !ctrl.isEmpty(ctrl.value)" class="value object">
+    <li ng-repeat="(key, value) in ctrl.value">
+      <rd-inspect-object-element
+        object="ctrl.value"
+        key="key"
+        value="value"
+      ></rd-inspect-object-element>
+    </li>
+  </ol>
+  <span class="brace" ng-bind="ctrl.isArray(ctrl.value) && ']' || '}'">}</span>
+</span>
