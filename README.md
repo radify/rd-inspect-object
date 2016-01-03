@@ -2,6 +2,8 @@
 
 `rd-inspect-object` is an Angular 1 directive that displays clickable, formatted object graphs, similar to the Web Inspector console.
 
+![Screenshot](example/screenshot.png)
+
 It can display any scope-available value, per the following:
 
 ```html
